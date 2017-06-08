@@ -22,8 +22,8 @@ public class Main {
 
             try {
                 properties.load(fis);
-                String proName = properties.getProperty("project.name");
                 String proPath = properties.getProperty("project.path");
+                String proName = properties.getProperty("project.name");
                 String proMavenDir = properties.getProperty("project.mavendir");
                 String proDir = properties.getProperty("project.dir");
 
@@ -34,6 +34,25 @@ public class Main {
                         list.add(dir);
                     }
                 }
+
+                File file1 = new File(proPath);
+                if("".equals(proDir)){
+                    System.out.println("存放路径不能为空");
+                    return;
+                }
+                if("".equals(proName)){
+                    System.out.println("项目名不能为空");
+                    return;
+                }
+                if("".equals(proMavenDir)){
+                    System.out.println("Maven固定目录不能为空");
+                    return;
+                }
+                if("".equals(proDir)){
+                    System.out.println("包路径不能为空");
+                    return;
+                }
+
 
                 System.out.println(list);
 
